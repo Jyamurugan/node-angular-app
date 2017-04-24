@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="text-center">
+            Employee list
+        </h1>
+
+    </div>
+    <div class="col-md-4 text-center">
+        <button class="btn btn-primary" [routerLink]="['/create']">Create</button>
+    </div>
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Date of birth</td>
+                    <td>Gender</td>
+                    <td>Age</td>
+                    <td>-</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let employee of (employees$ | async)">
+                    <td>
+                        {{employee.name}}
+                    </td>
+                    <td>
+                        {{employee.email}}
+                    </td>
+                    <td>
+                        {{employee.dob}}
+                    </td>
+                    <td>
+                        {{employee.gender}}
+                    </td>
+                    <td>
+                        {{employee.age}}
+                    </td>
+                    <td>
+                        <button class="btn btn-primay" (click)="update(employee)">Update</button>
+                        <button class="btn btn-primay" (click)="delete(employee)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

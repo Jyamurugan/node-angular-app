@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="text-center">
+        <button class="btn btn-primary" [routerLink]="['/']">Go back</button>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+        <form (ngSubmit)="createRecord(form)" #form="ngForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input required type="text" name="name" class="form-control" id="name" [(ngModel)]="employeeData.name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required name="email" class="form-control" id="email" [(ngModel)]="employeeData.email">
+            </div>
+            <div class="form-group">
+                <label for="date">Date of birth:</label>
+                <input required type="date" name="date" class="form-control" id="date" [(ngModel)]="employeeData.dob">
+            </div>
+            <div class="form-group">
+                <label class="checkbox-inline">
+                <input type="radio" name="gender" class="form-control" [(ngModel)]="employeeData.gender" value="Male">Male
+                </label>
+                <label class="checkbox-inline">
+                <input required type="radio" name="gender" class="form-control" [(ngModel)]="employeeData.gender" value="Female">Female
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+        </form>
+    </div>
+</div>
